@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, viewChild } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
@@ -12,7 +12,6 @@ import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
 })
 export class WeightInputForm {
     weight: number | null = null;
-    @Output() entrySubmitted = new EventEmitter<WeightEntry>();
     selectedUnit: WeightUnit = 'lb';
 
     constructor(private weightEntryService: WeightEntryService) {
@@ -30,7 +29,7 @@ export class WeightInputForm {
         }
 
         const entry = this.buildEntry(weight);
-        this.entrySubmitted.emit(entry);
+        this.weightEntryService.addEntry(entry);
     }
 
     openDatePicker() {
