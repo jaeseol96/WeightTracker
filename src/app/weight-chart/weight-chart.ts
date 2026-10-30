@@ -37,7 +37,8 @@ export class WeightChart {
                         }
                     },
                     y: {
-                        // title: { display: true, text: 'Weight (lb)' },
+                        suggestedMin: 100,
+                        suggestedMax: 500,
                         position: 'right',
                     },
                 },
