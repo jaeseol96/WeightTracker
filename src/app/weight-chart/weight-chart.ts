@@ -27,9 +27,17 @@ export class WeightChart {
                 ],
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
+                    x: {
+                        ticks: {
+                            maxTicksLimit: 6,
+                            maxRotation: 0,
+                        }
+                    },
                     y: {
-                        title: { display: true, text: 'Weight (lb)' },
+                        // title: { display: true, text: 'Weight (lb)' },
                         position: 'right',
                     },
                 },

@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Output, viewChild } from '@angular
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
-import { WeightEntry } from '../models/weight-entry.model';
+import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
 
 @Component({
     imports: [DatePipe, FormsModule],
@@ -13,7 +13,7 @@ import { WeightEntry } from '../models/weight-entry.model';
 export class WeightInputForm {
     weight: number | null = null;
     @Output() entrySubmitted = new EventEmitter<WeightEntry>();
-    //selectedUnit: 'kg' | 'lb';
+    selectedUnit: WeightUnit = 'lb';
 
     constructor(private weightEntryService: WeightEntryService) {
         this.weightEntryService = weightEntryService;
@@ -45,7 +45,7 @@ export class WeightInputForm {
         const newEntry: WeightEntry = {
             date: this.selectedDate,
             weight: weight,
-            unit: 'lb',
+            unit: this.selectedUnit,
         };
         return newEntry;
     }
