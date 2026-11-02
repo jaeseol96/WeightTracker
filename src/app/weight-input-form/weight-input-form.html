@@ -2,20 +2,22 @@
     id="inputForm"
     (ngSubmit)="onSubmit()"
 >
-    <div
-        class="input-container"
-        >
+    <div class="input-container">
         <button
             type="button"
             class="btn date-select-button"
             (click)="openDatePicker()"
         >
-            {{ selectedDate | date: 'M/d' }}
+            @if (isToday) {
+                Today
+            } @else {
+                {{ selectedDate | date: 'M/d' }}
+            }
         </button>
         <input
             type="date"
             class="date-picker-input"
-            [value]="selectedDate | date: 'yyyy-MM-dd'"
+            [value]="selectedDate"
             id="inputDate"
             #dateInput
             (change)="onDateChange(dateInput.value)"
@@ -37,14 +39,15 @@
             aria-label="unit"
             name="unit"
             [(ngModel)]="selectedUnit"
-            >
+        >
             <option value="lb">lb</option>
             <option value="kg">kg</option>
         </select>
         <button
             type="submit"
             class="btn submit-weight-button"
-        >Save Weight</button>
+        >
+            Save Weight
+        </button>
     </div>
-
 </form>

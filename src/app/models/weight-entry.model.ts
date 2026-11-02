@@ -1,7 +1,7 @@
 export type WeightUnit = 'kg' | 'lb';
 
 export interface WeightEntry {
-    date: Date;
+    date: string;
     weight: number;
     unit: WeightUnit;
 }

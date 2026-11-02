@@ -7,3 +7,36 @@
     box-sizing: border-box;
     gap: 16px;
 }
+
+.chart-area {
+    position: relative;
+    width: 100%;
+    height: clamp(100px, 45dvh, 420px);
+}
+
+#add-weight-message {
+    display: flex;
+    font-size: 24px;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    font-family:
+        Helvetica,
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        NotoColorEmoji,
+        'Noto Color Emoji',
+        'Segoe UI Symbol',
+        'Android Emoji',
+        EmojiSymbols,
+        -apple-system,
+        system-ui,
+        'Segoe UI',
+        Roboto,
+        'Helvetica Neue',
+        'Noto Sans',
+        sans-serif;
+}

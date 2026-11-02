@@ -34,12 +34,14 @@ export class WeightChart {
                         ticks: {
                             maxTicksLimit: 6,
                             maxRotation: 0,
-                        }
+                        },
                     },
                     y: {
-                        suggestedMin: 100,
-                        suggestedMax: 500,
                         position: 'right',
+                        ticks: {
+                            stepSize: 1,
+                            maxTicksLimit: 10,
+                        },
                     },
                 },
                 plugins: {
@@ -69,10 +71,16 @@ export class WeightChart {
         }
 
         const weights = this.entries.map((entry) => entry.weight);
-        const dates = this.entries.map((entry) => entry.date.toLocaleDateString());
+        const dates = this.entries.map((entry) => this.formatMonthDay(entry.date));
 
         chart.data.labels = dates;
         chart.data.datasets[0].data = weights;
         chart.update();
+    }
+
+    private formatMonthDay(date: string): string {
+        const monthDayLabel = date.slice(5);
+
+        return monthDayLabel;
     }
 }

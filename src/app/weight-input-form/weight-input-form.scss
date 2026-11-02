@@ -1,11 +1,26 @@
 .btn {
-    background: #5E5DF0;
+    background: #5e5df0;
     border-radius: 20px;
-    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-shadow: #5e5df0 0 10px 20px -10px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
-    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-family:
+        Helvetica,
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        NotoColorEmoji,
+        'Noto Color Emoji',
+        'Segoe UI Symbol',
+        'Android Emoji',
+        EmojiSymbols,
+        -apple-system,
+        system-ui,
+        'Segoe UI',
+        Roboto,
+        'Helvetica Neue',
+        'Noto Sans',
+        sans-serif;
     font-size: 24px;
     font-weight: 600;
     line-height: 24px;
@@ -16,7 +31,7 @@
 }
 
 .date-select-button {
-    max-width: 100px;
+    min-width: 112px;
 }
 
 .submit-weight-button {
@@ -32,11 +47,11 @@
 }
 
 .date-picker-input {
-	position: absolute;
-	opacity: 0;
-	width: 1px;
-	height: 1px;
-	pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
 }
 
 .unit-selector {

@@ -1,6 +1,6 @@
 import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
 import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
 
@@ -13,13 +13,18 @@ import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
 export class WeightInputForm {
     weight: number | null = null;
     selectedUnit: WeightUnit = 'lb';
-
-    constructor(private weightEntryService: WeightEntryService) {
-        this.weightEntryService = weightEntryService;
-    }
-
-    selectedDate = new Date();
+    selectedDate: string = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
     dateInput = viewChild<ElementRef<HTMLInputElement>>('dateInput');
+
+    constructor(private weightEntryService: WeightEntryService) {}
+
+    get isToday() {
+        if (this.selectedDate === formatDate(new Date(), 'yyyy-MM-dd', 'en-US')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     onSubmit() {
         const weight = this.weight;
@@ -37,7 +42,7 @@ export class WeightInputForm {
     }
 
     onDateChange(newDate: string) {
-        this.selectedDate = new Date(`${newDate}T00:00:00`);
+        this.selectedDate = newDate;
     }
 
     private buildEntry(weight: number): WeightEntry {
