@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    // Backgrounds
+    --color-background: #faf8f5;
+    --color-surface: #ffffff;
+    --color-surface-accent: #eef8f5;
+
+    // Primary accent
+    --color-primary: #157a6e;
+    --color-primary-hover: #12665c;
+
+    // Typography
+    --color-text-primary: #1c1c1c;
+    --color-text-secondary: #6b6b6b;
+    --color-text-on-primary: #ffffff;
+
+    // Borders
+    --color-border: #e7e2db;
+
+    // Errors
+    --color-error: #b42318;
+
+    // Success
+    --color-success: #ddf3ec;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    background-color: var(--color-primary);
+    min-height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    opacity: 1;
+    padding: 10px 16px;
+
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+}
+
+.btn:hover {
+    background-color: var(--color-primary-hover);
+}
