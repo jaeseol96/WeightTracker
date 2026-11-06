@@ -1,36 +1,6 @@
-.btn {
-    background: #5e5df0;
-    border-radius: 20px;
-    box-shadow: #5e5df0 0 10px 20px -10px;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    font-family:
-        Helvetica,
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        NotoColorEmoji,
-        'Noto Color Emoji',
-        'Segoe UI Symbol',
-        'Android Emoji',
-        EmojiSymbols,
-        -apple-system,
-        system-ui,
-        'Segoe UI',
-        Roboto,
-        'Helvetica Neue',
-        'Noto Sans',
-        sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 24px;
-    opacity: 1;
-    outline: 0 solid transparent;
-    padding: 10px 16px;
-    border: 0;
-}
-
 .date-select-button {
+    background-color: var(--color-surface);
+    color: var(--color-primary-text);
     min-width: 112px;
 }
 
@@ -55,6 +25,8 @@
 }
 
 .unit-selector {
+    background-color: var(--color-surface-accent);
+    color: var(--color-primary);
     appearance: none;
     -webkit-appearance: none;
     padding: 10px 12px;
@@ -62,10 +34,30 @@
 }
 
 .weight-value-input {
-    font-size: 28px;
-    min-height: 44px;
-    text-align: right;
+    box-sizing: border-box;
     width: 100%;
     min-width: 0;
-    box-sizing: border-box;
+    min-height: 44px;
+    padding: 10px 12px;
+
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+
+    &:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    &::placeholder {
+        color: var(--color-text-secondary);
+        font-weight: 400;
+    }
 }
