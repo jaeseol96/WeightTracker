@@ -8,6 +8,11 @@
             class="btn date-select-button"
             (click)="openDatePicker()"
         >
+            <svg
+                lucideCalendarDays
+                [size]="16"
+                [strokeWidth]="1.5"
+            ></svg>
             @if (isToday) {
                 Today
             } @else {

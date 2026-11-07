@@ -3,9 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { DatePipe, formatDate } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
 import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
+import { LucideCalendarDays } from '@lucide/angular';
 
 @Component({
-    imports: [DatePipe, FormsModule],
+    imports: [DatePipe, FormsModule, LucideCalendarDays],
     selector: 'app-weight-input-form',
     styleUrl: './weight-input-form.scss',
     templateUrl: './weight-input-form.html',

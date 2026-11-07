@@ -1,7 +1,11 @@
 .date-select-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background-color: var(--color-surface);
     color: var(--color-primary-text);
-    min-width: 112px;
+    min-width: 140px;
 }
 
 .submit-weight-button {

@@ -27,6 +27,23 @@ export class WeightChart {
                 ],
             },
             options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        position: 'top',
+                        align: 'start',
+                        text: 'Your Progress',
+                    },
+                    legend: {
+                        display: false,
+                    },
+                },
+                layout: {
+                    padding: {
+                        left: 8,
+                        right: 8,
+                    },
+                },
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
@@ -42,11 +59,6 @@ export class WeightChart {
                             stepSize: 1,
                             maxTicksLimit: 10,
                         },
-                    },
-                },
-                plugins: {
-                    legend: {
-                        display: false,
                     },
                 },
             },
