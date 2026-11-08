@@ -4,9 +4,10 @@ import { WeightChart } from './weight-chart/weight-chart';
 import { WeightEntryService } from './services/weight-entry.service';
 import { WeightEntry } from './models/weight-entry.model';
 import { Title } from './title/title';
+import { CurrentStatus } from './current-status/current-status';
 
 @Component({
-    imports: [WeightInputForm, WeightChart, Title],
+    imports: [WeightInputForm, WeightChart, Title, CurrentStatus],
     selector: 'app-root',
     styleUrl: './app.scss',
     templateUrl: './app.html',
@@ -14,4 +15,8 @@ import { Title } from './title/title';
 export class App {
     private readonly weightEntryService: WeightEntryService = inject(WeightEntryService);
     protected readonly entries = this.weightEntryService.entries;
+
+    get mostRecentEntry(): WeightEntry | undefined {
+        return this.entries().at(-1);
+    }
 }

@@ -1,1 +1,14 @@
-<p>current-status works!</p>
+<div>
+    <p id="header-text">CURRENT WEIGHT</p>
+    <div>
+        <span id="weight-value">
+            {{ currentWeight.weight }}
+        </span>
+        <span id="weight-unit">
+            {{ currentWeight.unit }}
+        </span>
+    </div>
+    <div>
+        <p id="last-recorded">Last recorded {{ currentWeight.date }}</p>
+    </div>
+</div>
