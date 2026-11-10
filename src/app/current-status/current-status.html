@@ -9,6 +9,6 @@
         </span>
     </div>
     <div>
-        <p id="last-recorded">Last recorded {{ currentWeight.date }}</p>
+        <p id="last-recorded">Last recorded {{ currentWeight.date | date: 'mediumDate' }}</p>
     </div>
 </div>

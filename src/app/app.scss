@@ -12,7 +12,7 @@
 .chart-area {
     position: relative;
     width: 100%;
-    height: clamp(100px, 45dvh, 420px);
+    height: clamp(200px, 35dvh, 320px);
 }
 
 #add-weight-message {
@@ -24,20 +24,11 @@
     justify-content: center;
     align-items: center;
 
-    font-family:
-        Helvetica,
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        NotoColorEmoji,
-        'Noto Color Emoji',
-        'Segoe UI Symbol',
-        'Android Emoji',
-        EmojiSymbols,
-        -apple-system,
-        system-ui,
-        'Segoe UI',
-        Roboto,
-        'Helvetica Neue',
-        'Noto Sans',
-        sans-serif;
+    font-family: system-ui, sans-serif;
+}
+
+#log-weight-message {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: -6px;
 }

@@ -6,12 +6,19 @@
 }
 
 #weight-value {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 500;
     color: var(--color-text-primary);
     margin: 0;
 }
 
+#weight-unit {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin-left: -6px;
+}
+
 #last-recorded {
+    color: var(--color-text-secondary);
     margin: 0;
 }

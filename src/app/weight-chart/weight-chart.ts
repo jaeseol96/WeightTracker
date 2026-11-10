@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { WeightEntry } from '../models/weight-entry.model';
+import { formatDate } from '@angular/common';
 
 @Component({
     imports: [],
@@ -21,8 +22,33 @@ export class WeightChart {
                     {
                         label: 'Weight',
                         data: [],
-                        borderWidth: 2,
-                        pointHitRadius: 10,
+                        borderWidth: 3,
+                        pointHitRadius: 12,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        pointHoverBackgroundColor: '#157A6E',
+                        pointHoverBorderColor: '#FFFFFF',
+                        pointHoverBorderWidth: 2,
+                        fill: 'start',
+                        backgroundColor: (context) => {
+                            const { ctx, chartArea } = context.chart;
+
+                            if (!chartArea) {
+                                return 'rgba(21, 122, 110, 0.08)';
+                            }
+
+                            const gradient = ctx.createLinearGradient(
+                                0,
+                                chartArea.top,
+                                0,
+                                chartArea.bottom,
+                            );
+
+                            gradient.addColorStop(0, 'rgba(21, 122, 110, 0.16)');
+                            gradient.addColorStop(1, 'rgba(21, 122, 110, 0)');
+
+                            return gradient;
+                        },
                     },
                 ],
             },
@@ -37,11 +63,49 @@ export class WeightChart {
                     legend: {
                         display: false,
                     },
+                    tooltip: {
+                        backgroundColor: '#1C1C1C',
+                        titleColor: '#D4D4D4',
+                        bodyColor: '#FFFFFF',
+
+                        borderColor: '#404040',
+                        borderWidth: 1,
+                        cornerRadius: 10,
+                        padding: 12,
+                        displayColors: false,
+
+                        titleFont: {
+                            family: 'system-ui',
+                            size: 12,
+                            weight: 'normal',
+                        },
+                        bodyFont: {
+                            family: 'system-ui',
+                            size: 15,
+                            weight: 'bold',
+                        },
+                        callbacks: {
+                            title: (items) => {
+                                const index = items[0]?.dataIndex;
+
+                                if (index === undefined) return '';
+
+                                const entry = this.entries[index];
+
+                                return formatDate(entry.date, 'mediumDate', 'en-US');
+                            },
+                            label: (context) => {
+                                const entry = this.entries[context.dataIndex];
+
+                                return `${entry.weight} ${entry.unit}`;
+                            },
+                        },
+                    },
                 },
                 layout: {
                     padding: {
-                        left: 8,
-                        right: 8,
+                        left: 16,
+                        right: 16,
                     },
                 },
                 responsive: true,
@@ -52,6 +116,12 @@ export class WeightChart {
                             maxTicksLimit: 6,
                             maxRotation: 0,
                         },
+                        grid: {
+                            display: false,
+                        },
+                        border: {
+                            display: false,
+                        },
                     },
                     y: {
                         position: 'right',
@@ -59,8 +129,19 @@ export class WeightChart {
                             stepSize: 1,
                             maxTicksLimit: 10,
                         },
+                        grid: {
+                            color: '#E7E2DB',
+                        },
+                        border: {
+                            display: false,
+                        },
                     },
                 },
+                elements: {
+                    line: {},
+                },
+                backgroundColor: '#157a6e',
+                borderColor: '#157a6e',
             },
         });
 
