@@ -31,6 +31,18 @@ export class WeightEntryService {
         this.saveToStorage(this._entries());
     }
 
+    removeEntry(weightEntry: WeightEntry) {
+        if (this.loadFailed) {
+            console.error('Could not delete the entry because loading has failed.');
+            return;
+        }
+
+        this._entries.update((current) =>
+            current.filter((entry) => entry.date != weightEntry.date),
+        );
+        this.saveToStorage(this._entries());
+    }
+
     private saveToStorage(entries: WeightEntry[]) {
         let toSave = JSON.stringify(entries);
         localStorage.setItem('entries', toSave);
