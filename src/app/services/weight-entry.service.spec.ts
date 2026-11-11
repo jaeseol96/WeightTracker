@@ -2,7 +2,7 @@ import { WeightEntry } from '../models/weight-entry.model';
 import { WeightEntryService } from './weight-entry.service';
 
 describe('WeightEntryService', () => {
-    const service = new WeightEntryService();
+    let service: WeightEntryService;
     let entries: WeightEntry[];
 
     beforeEach(() => {
@@ -13,7 +13,7 @@ describe('WeightEntryService', () => {
                 unit: 'lb',
             },
             {
-                date: '2026-02-8',
+                date: '2026-02-08',
                 weight: 155.2,
                 unit: 'lb',
             },
@@ -23,6 +23,9 @@ describe('WeightEntryService', () => {
                 unit: 'lb',
             },
         ];
+
+        localStorage.setItem('entries', JSON.stringify(entries));
+        service = new WeightEntryService();
     });
 
     describe('addEntry', () => {
@@ -35,7 +38,7 @@ describe('WeightEntryService', () => {
 
             service.addEntry(newEntry);
 
-            expect(service.entries().at(3)).isEqualTo(newEntry);
+            expect(service.entries()).toEqual([...entries, newEntry]);
         });
     });
 });
