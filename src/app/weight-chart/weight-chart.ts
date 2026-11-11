@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { WeightEntry } from '../models/weight-entry.model';
 import { formatDate } from '@angular/common';
@@ -11,7 +11,8 @@ import { formatDate } from '@angular/common';
 })
 export class WeightChart {
     weightChart?: Chart;
-    @Input() entries: WeightEntry[] = [];
+    entries = input<WeightEntry[]>([]);
+    selectedEntry = output<WeightEntry>();
 
     ngAfterViewInit() {
         this.weightChart = new Chart('weightChart', {
@@ -93,12 +94,12 @@ export class WeightChart {
 
                                 if (index === undefined) return '';
 
-                                const entry = this.entries[index];
+                                const entry = this.entries()[index];
 
                                 return formatDate(entry.date, 'mediumDate', 'en-US');
                             },
                             label: (context) => {
-                                const entry = this.entries[context.dataIndex];
+                                const entry = this.entries()[context.dataIndex];
 
                                 return `${entry.weight} ${entry.unit}`;
                             },
@@ -145,6 +146,15 @@ export class WeightChart {
                 },
                 backgroundColor: '#157a6e',
                 borderColor: '#157a6e',
+                onClick: (_event, elements) => {
+                    const point = elements[0];
+
+                    if (!point) return;
+
+                    const selectedEntry = this.entries()[point.index];
+
+                    console.log('Selected entry:', selectedEntry);
+                },
             },
         });
 
@@ -166,8 +176,8 @@ export class WeightChart {
             return;
         }
 
-        const weights = this.entries.map((entry) => entry.weight);
-        const dates = this.entries.map((entry) => this.formatMonthDay(entry.date));
+        const weights = this.entries().map((entry) => entry.weight);
+        const dates = this.entries().map((entry) => this.formatMonthDay(entry.date));
 
         chart.data.labels = dates;
         chart.data.datasets[0].data = weights;
