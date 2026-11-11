@@ -1,1 +1,27 @@
-<p>weight-entry-detail works!</p>
+<div class="weight-entry-detail-container">
+    @if (selectedEntry()) {
+        <div class="header-text">Weight entry</div>
+        <div class="date">{{ selectedEntry()?.date | date: 'longDate' }}</div>
+        <div>
+            <span class="weight-value">
+                {{ selectedEntry()?.weight }}
+            </span>
+            <span class="weight-unit">
+                {{ selectedEntry()?.unit }}
+            </span>
+        </div>
+        <div class="button-row">
+            <button class="btn edit">Edit</button>
+            <button class="btn delete">Delete</button>
+        </div>
+    } @else {
+        <div class="no-selection-message">
+            <svg
+                lucideMousePointerClick
+                [size]="24"
+                [strokeWidth]="1"
+            ></svg>
+            Select a point on the chart to view or manage it.
+        </div>
+    }
+</div>

@@ -36,6 +36,7 @@ export class WeightInputForm {
 
         const entry = this.buildEntry(weight);
         this.weightEntryService.addEntry(entry);
+        this.weight = null;
     }
 
     openDatePicker() {

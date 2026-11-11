@@ -151,9 +151,8 @@ export class WeightChart {
 
                     if (!point) return;
 
-                    const selectedEntry = this.entries()[point.index];
-
-                    console.log('Selected entry:', selectedEntry);
+                    const selected = this.entries()[point.index];
+                    this.selectedEntry.emit(selected);
                 },
             },
         });

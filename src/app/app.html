@@ -2,12 +2,20 @@
 @if (mostRecentEntry) {
     <app-current-status [currentWeight]="mostRecentEntry"></app-current-status>
 }
+
 <div class="chart-area">
     @if (entries().length === 0) {
         <p id="add-weight-message">Add your first weight to see your progress!</p>
     } @else {
-        <app-weight-chart [entries]="entries()" />
+        <app-weight-chart
+            [entries]="entries()"
+            (selectedEntry)="selectedEntry = $event"
+        />
     }
 </div>
+
 <div id="log-weight-message">Log weight</div>
+
 <app-weight-input-form />
+
+<app-weight-entry-detail [selectedEntry]="selectedEntry"></app-weight-entry-detail>
