@@ -21,4 +21,9 @@ export class App {
     get mostRecentEntry(): WeightEntry | undefined {
         return this.entries().at(-1);
     }
+
+    onDelete(entry: WeightEntry): void {
+        this.weightEntryService.removeEntry(entry);
+        this.selectedEntry = null;
+    }
 }
