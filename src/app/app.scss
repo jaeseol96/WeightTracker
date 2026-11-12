@@ -11,8 +11,11 @@
 
 .chart-area {
     position: relative;
+    background-color: var(--color-surface);
     width: 100%;
     height: clamp(200px, 35dvh, 320px);
+    border-radius: 12px;
+    color: var(--color-text-secondary);
 }
 
 #add-weight-message {
