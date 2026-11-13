@@ -9,7 +9,9 @@
 
 <div class="chart-area">
     @if (entries().length === 0) {
-        <p id="add-weight-message">Add your first weight to see your progress!</p>
+        <div class="empty-chart-message-container">
+            <p class="add-weight-message">Add your first weight to see your progress!</p>
+        </div>
     } @else {
         <app-weight-chart
             [entries]="entries()"
@@ -18,7 +20,7 @@
     }
 </div>
 
-<div id="log-weight-message">Log weight</div>
+<div class="log-weight-message">Log weight</div>
 
 <app-weight-input-form />
 

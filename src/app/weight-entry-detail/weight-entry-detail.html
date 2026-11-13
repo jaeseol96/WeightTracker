@@ -2,7 +2,7 @@
     @if (selectedEntry()) {
         <div class="header-text">Weight entry</div>
         <div class="date">{{ selectedEntry()?.date | date: 'longDate' }}</div>
-        <div>
+        <div id="value-unit-row">
             <span class="weight-value">
                 {{ selectedEntry()?.weight }}
             </span>
@@ -11,11 +11,16 @@
             </span>
         </div>
         <div class="button-row">
-            <button class="btn edit">Edit</button>
+            <button class="btn edit">
+                <svg class="btn-icon"
+                     lucideSquarePen
+                ></svg>
+                Edit</button>
             <button
                 class="btn delete"
                 (click)="onDelete()"
-            ><svg class="btn-icon"
+            >
+                <svg class="btn-icon"
                 lucideTrash
             ></svg>
                 Delete

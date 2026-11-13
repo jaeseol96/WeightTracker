@@ -5,12 +5,11 @@ import { WeightEntryService } from './services/weight-entry.service';
 import {WeightEntry, WeightUnit} from './models/weight-entry.model';
 import { Title } from './title/title';
 import { WeightEntryDetail } from './weight-entry-detail/weight-entry-detail';
-import {CurrentStatusContainer} from './current-status-container/current-status-container';
 import {CurrentStatus} from './current-status/current-status';
 import {SettingsService} from './services/settings.service';
 
 @Component({
-    imports: [WeightInputForm, WeightChart, Title, WeightEntryDetail, CurrentStatusContainer, CurrentStatus],
+    imports: [WeightInputForm, WeightChart, Title, WeightEntryDetail, CurrentStatus],
     selector: 'app-root',
     styleUrl: './app.scss',
     templateUrl: './app.html',

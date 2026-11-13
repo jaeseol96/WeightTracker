@@ -18,19 +18,24 @@
     color: var(--color-text-secondary);
 }
 
-#add-weight-message {
+.empty-chart-message-container {
     display: flex;
-    font-size: 24px;
     height: 100%;
-    margin: 0;
-    text-align: center;
     justify-content: center;
     align-items: center;
+
+    padding: 0 16px;
+}
+
+.add-weight-message {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
 
     font-family: system-ui, sans-serif;
 }
 
-#log-weight-message {
+.log-weight-message {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: -6px;
