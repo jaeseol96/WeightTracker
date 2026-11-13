@@ -15,14 +15,17 @@
             <button
                 class="btn delete"
                 (click)="onDelete()"
-            >Delete</button>
+            ><svg class="btn-icon"
+                lucideTrash
+            ></svg>
+                Delete
+            </button>
         </div>
     } @else {
         <div class="no-selection-message">
             <svg
+                class="btn-icon"
                 lucideMousePointerClick
-                [size]="24"
-                [strokeWidth]="1"
             ></svg>
             Select a point on the chart to view or manage it.
         </div>
