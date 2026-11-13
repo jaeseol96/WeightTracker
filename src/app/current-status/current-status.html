@@ -1,14 +1,27 @@
 <div>
     <p class="header-text">CURRENT WEIGHT</p>
+
     <div>
-        <span class="weight-value">
-            {{ currentWeight().weight }}
-        </span>
+        @if (currentWeight()) {
+            <span class="weight-value">
+            {{ currentWeight()?.weight }}
+            </span>
+        } @else {
+            <span class="weight-value">
+                &mdash;
+            </span>
+        }
+
         <span class="weight-unit">
-            {{ currentWeight().unit }}
+            {{ currentUnit() }}
         </span>
     </div>
     <div>
-        <p class="last-recorded">Last recorded {{ currentWeight().date | date: 'mediumDate' }}</p>
+        @if (currentWeight()) {
+            <p class="last-recorded">Last recorded {{ currentWeight()?.date | date: 'mediumDate' }}</p>
+        } @else {
+            <p class="last-recorded">No measurements recorded yet</p>
+        }
+
     </div>
 </div>

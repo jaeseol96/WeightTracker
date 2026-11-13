@@ -1,22 +1,26 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { WeightInputForm } from './weight-input-form/weight-input-form';
 import { WeightChart } from './weight-chart/weight-chart';
 import { WeightEntryService } from './services/weight-entry.service';
-import { WeightEntry } from './models/weight-entry.model';
+import {WeightEntry, WeightUnit} from './models/weight-entry.model';
 import { Title } from './title/title';
-import { CurrentStatus } from './current-status/current-status';
 import { WeightEntryDetail } from './weight-entry-detail/weight-entry-detail';
+import {CurrentStatusContainer} from './current-status-container/current-status-container';
+import {CurrentStatus} from './current-status/current-status';
+import {SettingsService} from './services/settings.service';
 
 @Component({
-    imports: [WeightInputForm, WeightChart, Title, CurrentStatus, WeightEntryDetail],
+    imports: [WeightInputForm, WeightChart, Title, WeightEntryDetail, CurrentStatusContainer, CurrentStatus],
     selector: 'app-root',
     styleUrl: './app.scss',
     templateUrl: './app.html',
 })
 export class App {
     private readonly weightEntryService: WeightEntryService = inject(WeightEntryService);
+    private readonly settingsService: SettingsService = inject(SettingsService);
     protected readonly entries = this.weightEntryService.entries;
     selectedEntry: WeightEntry | null = null;
+    currentUnit: WeightUnit = this.settingsService.default;
 
     get mostRecentEntry(): WeightEntry | undefined {
         return this.entries().at(-1);

@@ -1,0 +1,15 @@
+<div>
+    <p class="header-text">CURRENT WEIGHT</p>
+
+    <div>
+        <span class="weight-value">
+            {{ currentWeight().weight }}
+        </span>
+        <span class="weight-unit">
+            {{ currentWeight().unit }}
+        </span>
+    </div>
+    <div>
+        <p class="last-recorded">Last recorded {{ currentWeight().date | date: 'mediumDate' }}</p>
+    </div>
+</div>

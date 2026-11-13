@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { WeightEntry } from '../models/weight-entry.model';
+import {WeightEntry, WeightUnit} from '../models/weight-entry.model';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -9,5 +9,6 @@ import { DatePipe } from '@angular/common';
     templateUrl: './current-status.html',
 })
 export class CurrentStatus {
-    currentWeight = input.required<WeightEntry>();
+    currentWeight = input<WeightEntry>();
+    currentUnit = input.required<WeightUnit>();
 }
