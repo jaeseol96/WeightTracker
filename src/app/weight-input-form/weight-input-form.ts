@@ -4,6 +4,7 @@ import { DatePipe, formatDate } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
 import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
 import { LucideCalendarDays } from '@lucide/angular';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
     imports: [DatePipe, FormsModule, LucideCalendarDays],
@@ -17,7 +18,12 @@ export class WeightInputForm {
     selectedDate: string = formatDate(new Date(), 'yyyy-MM-dd', 'en-US');
     dateInput = viewChild<ElementRef<HTMLInputElement>>('dateInput');
 
-    constructor(private weightEntryService: WeightEntryService) {}
+    constructor(
+        private weightEntryService: WeightEntryService,
+        private settingsService: SettingsService,
+    ) {
+        this.selectedUnit = this.settingsService.currentUnit();
+    }
 
     get isToday() {
         if (this.selectedDate === formatDate(new Date(), 'yyyy-MM-dd', 'en-US')) {
@@ -45,6 +51,11 @@ export class WeightInputForm {
 
     onDateChange(newDate: string) {
         this.selectedDate = newDate;
+    }
+
+    onUnitChange(unit: WeightUnit) {
+        this.selectedUnit = unit;
+        this.settingsService.setDefaultUnit(unit);
     }
 
     private buildEntry(weight: number): WeightEntry {

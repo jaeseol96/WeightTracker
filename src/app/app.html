@@ -1,11 +1,10 @@
 <app-title></app-title>
 
-    <app-current-status
-        [currentWeight]="mostRecentEntry"
-        [currentUnit]="currentUnit"
-    >
-    </app-current-status>
-
+<app-current-status
+    [currentWeight]="mostRecentEntry"
+    [currentUnit]="currentUnit()"
+>
+</app-current-status>
 
 <div class="chart-area">
     @if (entries().length === 0) {

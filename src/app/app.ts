@@ -21,8 +21,8 @@ export class App {
     private readonly swUpdate: SwUpdate = inject(SwUpdate);
 
     protected readonly entries = this.weightEntryService.entries;
+    protected readonly currentUnit = this.settingsService.currentUnit;
     selectedEntry: WeightEntry | null = null;
-    currentUnit: WeightUnit = this.settingsService.default;
 
     constructor() {
         if (this.swUpdate.isEnabled) {

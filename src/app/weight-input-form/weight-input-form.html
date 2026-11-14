@@ -49,6 +49,7 @@
             aria-label="unit"
             name="unit"
             [(ngModel)]="selectedUnit"
+            (ngModelChange)="onUnitChange($event)"
         >
             <option value="lb">lb</option>
             <option value="kg">kg</option>
