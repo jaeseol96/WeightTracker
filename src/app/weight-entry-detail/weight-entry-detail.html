@@ -12,24 +12,27 @@
         </div>
         <div class="button-row">
             <button class="btn edit">
-                <svg class="btn-icon"
-                     lucideSquarePen
+                <svg
+                    class="btn-icon"
+                    lucideSquarePen
                 ></svg>
-                Edit</button>
+                Edit
+            </button>
             <button
                 class="btn delete"
                 (click)="onDelete()"
             >
-                <svg class="btn-icon"
-                lucideTrash
-            ></svg>
+                <svg
+                    class="btn-icon"
+                    lucideTrash
+                ></svg>
                 Delete
             </button>
         </div>
     } @else {
         <div class="no-selection-message">
             <svg
-                class="btn-icon"
+                class="btn-icon click"
                 lucideMousePointerClick
             ></svg>
             Select a point on the chart to view or manage it.

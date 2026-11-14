@@ -62,6 +62,11 @@
     stroke-width: 1;
 }
 
+.btn-icon.click {
+    width: 26px;
+    height: 26px;
+}
+
 .btn.edit {
     flex: 1;
     background-color: var(--color-surface-accent);
