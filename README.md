@@ -1,8 +1,36 @@
 # WeightTracker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
+A lightweight, mobile-friendly weight tracking app built with Angular. Log your weight, visualize your progress over time, and keep your records locally on your own device.
 
-## Install on your phone (PWA)
+Note: This app is designed to be used only on mobile devices, and does not scale well for larger size screens.
+
+## About This Project
+
+I built Weight Tracker as a personal project to practice modern Angular development while creating a simple tool to monitor weight changes over time.
+
+The project focuses on building a responsive, mobile-friendly interface, managing application state with Angular Signals, and visualizing data using Chart.js.
+
+## Features
+
+Weight logging: Record weight measurements for today or a selected date, in pounds (lb) or kilograms (kg).
+
+Interactive chart: Visualize weight changes over time and select data points to view individual entries.
+
+Entry management: View and delete previously recorded measurements.
+
+Current weight: See your most recent measurement and when it was recorded.
+
+Persistent storage: Save measurements and your preferred weight unit locally in your browser.
+
+Progressive Web App (PWA): Install the app on supported devices for an app-like experience.
+
+### Currently unavailable features:
+
+- Editing entries. This can be circumvented by entering a new entry on the same date which replaces the old one.
+- Converting between lb and kg.
+- Importing/Exporting your entry data.
+
+## How to Install on your phone (PWA)
 
 WeightTracker is a **progressive web app (PWA)**, which means you can add it to your phone's Home Screen and open it like an app—no App Store or Play Store download required.
 
@@ -54,6 +82,9 @@ Open the browser menu and look for **Install app**, **Install**, or **Add to Hom
 
 > **Important:** Weight entries are currently saved **locally on your device**, not synced to an account or other devices. Clearing website data or removing the installed app may delete your entries. You must visit the site online initially; offline access depends on the PWA's cached files.
 
+## Deployment
+
+The application is deployed to GitHub Pages through GitHub Actions. Pushing changes to the main branch automatically triggers a production build and deployment.
 
 ## Development server
 
@@ -64,20 +95,6 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
 
 ## Building
 
@@ -104,9 +121,3 @@ For end-to-end (e2e) testing, run:
 ```bash
 ng e2e
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
