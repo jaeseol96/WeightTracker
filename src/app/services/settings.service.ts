@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { WeightUnit } from '../models/weight-entry.model';
+import { WeightUnit } from '../models/weight-value.model';
 
 @Injectable({
     providedIn: 'root',

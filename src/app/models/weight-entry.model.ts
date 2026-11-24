@@ -1,7 +1,5 @@
-export type WeightUnit = 'kg' | 'lb';
+import { WeightValue } from './weight-value.model';
 
-export interface WeightEntry {
+export interface WeightEntry extends WeightValue {
     date: string;
-    weight: number;
-    unit: WeightUnit;
 }

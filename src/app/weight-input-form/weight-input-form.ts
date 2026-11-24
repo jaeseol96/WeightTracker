@@ -2,7 +2,8 @@ import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, formatDate } from '@angular/common';
 import { WeightEntryService } from '../services/weight-entry.service';
-import { WeightEntry, WeightUnit } from '../models/weight-entry.model';
+import { WeightEntry } from '../models/weight-entry.model';
+import { WeightUnit } from '../models/weight-value.model';
 import { LucideCalendarDays } from '@lucide/angular';
 import { SettingsService } from '../services/settings.service';
 

@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
-import {WeightEntry, WeightUnit} from '../models/weight-entry.model';
+import { WeightEntry } from '../models/weight-entry.model';
+import { WeightUnit } from '../models/weight-value.model';
 import { DatePipe } from '@angular/common';
 
 @Component({
