@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { WeightEntry } from '../models/weight-entry.model';
 import { WeightUnit, WeightValue } from '../models/weight-value.model';
 
 const LB_KG_CONVERSION_FACTOR = 0.45359237;
@@ -8,20 +7,22 @@ const LB_KG_CONVERSION_FACTOR = 0.45359237;
     providedIn: 'root',
 })
 export class UnitConverterService {
-    convertWeight(entry: WeightEntry, currUnit: WeightUnit): WeightValue {
-        if (currUnit === entry.unit) {
+    convertWeight(source: WeightValue, targetUnit: WeightUnit): WeightValue {
+        if (targetUnit === source.unit) {
             return {
-                weight: entry.weight,
-                unit: entry.unit,
+                weight: source.weight,
+                unit: source.unit,
             };
         }
 
         const weight =
-            currUnit === 'lb' ? this.convertToLb(entry.weight) : this.convertToKg(entry.weight);
+            targetUnit === 'lb'
+                ? this.convertToLb(source.weight)
+                : this.convertToKg(source.weight);
 
         return {
             weight,
-            unit: currUnit,
+            unit: targetUnit,
         };
     }
 

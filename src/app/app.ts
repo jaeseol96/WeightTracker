@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { WeightInputForm } from './weight-input-form/weight-input-form';
 import { WeightChart } from './weight-chart/weight-chart';
 import { WeightEntryService } from './services/weight-entry.service';
@@ -23,7 +23,16 @@ export class App {
 
     protected readonly entries = this.weightEntryService.entries;
     protected readonly currentUnit = this.settingsService.currentUnit;
-    selectedEntry: WeightEntry | null = null;
+    protected readonly selectedDate = signal<string | null>(null);
+    protected readonly selectedEntry = computed(() => {
+        const date = this.selectedDate();
+
+        if (date === null) {
+            return null;
+        }
+
+        return this.entries().find((entry) => entry.date === date) ?? null;
+    });
 
     constructor() {
         if (this.swUpdate.isEnabled) {
@@ -41,6 +50,6 @@ export class App {
 
     onDelete(entry: WeightEntry): void {
         this.weightEntryService.removeEntry(entry);
-        this.selectedEntry = null;
+        this.selectedDate.set(null);
     }
 }

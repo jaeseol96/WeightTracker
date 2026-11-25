@@ -4,24 +4,23 @@
     <div>
         @if (currentWeight()) {
             <span class="weight-value">
-            {{ currentWeight()?.weight }}
+                {{ convertedWeight()?.weight | number: '1.0-1' }}
             </span>
         } @else {
-            <span class="weight-value">
-                &mdash;
-            </span>
+            <span class="weight-value"> &mdash; </span>
         }
 
         <span class="weight-unit">
-            {{ currentUnit() }}
+            {{ convertedWeight()?.unit }}
         </span>
     </div>
     <div>
         @if (currentWeight()) {
-            <p class="last-recorded">Last recorded {{ currentWeight()?.date | date: 'mediumDate' }}</p>
+            <p class="last-recorded">
+                Last recorded {{ currentWeight()?.date | date: 'mediumDate' }}
+            </p>
         } @else {
             <p class="last-recorded">No measurements recorded yet</p>
         }
-
     </div>
 </div>

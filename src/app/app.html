@@ -14,7 +14,8 @@
     } @else {
         <app-weight-chart
             [entries]="entries()"
-            (selectedEntry)="selectedEntry = $event"
+            (selectedEntry)="selectedDate.set($event.date)"
+            [currentUnit]="currentUnit()"
         />
     }
 </div>
@@ -24,6 +25,7 @@
 <app-weight-input-form />
 
 <app-weight-entry-detail
-    [selectedEntry]="selectedEntry"
+    [selectedEntry]="selectedEntry()"
+    [currentUnit]="currentUnit()"
     (toDelete)="onDelete($event)"
 ></app-weight-entry-detail>

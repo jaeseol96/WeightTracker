@@ -1,7 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { WeightEntry } from '../models/weight-entry.model';
-import { formatDate } from '@angular/common';
+import { formatDate, formatNumber } from '@angular/common';
+import { UnitConverterService } from '../services/unit-converter-service';
+import { WeightUnit } from '../models/weight-value.model';
 
 @Component({
     imports: [],
@@ -13,6 +15,8 @@ export class WeightChart {
     weightChart?: Chart;
     entries = input<WeightEntry[]>([]);
     selectedEntry = output<WeightEntry>();
+    currentUnit = input.required<WeightUnit>();
+    unitConvertService = inject(UnitConverterService);
 
     ngAfterViewInit() {
         this.weightChart = new Chart('weightChart', {
@@ -100,8 +104,11 @@ export class WeightChart {
                             },
                             label: (context) => {
                                 const entry = this.entries()[context.dataIndex];
-
-                                return `${entry.weight} ${entry.unit}`;
+                                const { weight, unit } = this.unitConvertService.convertWeight(
+                                    entry,
+                                    this.currentUnit(),
+                                );
+                                return `${formatNumber(weight, 'en-CA', '1.0-1')} ${unit}`;
                             },
                         },
                     },
@@ -175,7 +182,9 @@ export class WeightChart {
             return;
         }
 
-        const weights = this.entries().map((entry) => entry.weight);
+        const weights = this.entries().map(
+            (entry) => this.unitConvertService.convertWeight(entry, this.currentUnit()).weight,
+        );
         const dates = this.entries().map((entry) => this.formatMonthDay(entry.date));
 
         chart.data.labels = dates;
