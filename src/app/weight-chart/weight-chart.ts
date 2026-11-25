@@ -103,11 +103,11 @@ export class WeightChart {
                                 return formatDate(entry.date, 'mediumDate', 'en-US');
                             },
                             label: (context) => {
-                                const entry = this.entries()[context.dataIndex];
-                                const { weight, unit } = this.unitConvertService.convertWeight(
-                                    entry,
-                                    this.currentUnit(),
-                                );
+                                const weight = context.parsed.y;
+                                if (weight === null) {
+                                    return '';
+                                }
+                                const unit = this.currentUnit();
                                 return `${formatNumber(weight, 'en-CA', '1.0-1')} ${unit}`;
                             },
                         },
