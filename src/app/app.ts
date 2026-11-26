@@ -4,6 +4,7 @@ import { WeightChart } from './weight-chart/weight-chart';
 import { WeightEntryService } from './services/weight-entry.service';
 import { WeightEntry } from './models/weight-entry.model';
 import { WeightUnit } from './models/weight-value.model';
+import { UnitSwitch } from './unit-switch/unit-switch';
 import { Title } from './title/title';
 import { WeightEntryDetail } from './weight-entry-detail/weight-entry-detail';
 import { CurrentStatus } from './current-status/current-status';
@@ -11,7 +12,7 @@ import { SettingsService } from './services/settings.service';
 import { SwUpdate } from '@angular/service-worker';
 
 @Component({
-    imports: [WeightInputForm, WeightChart, Title, WeightEntryDetail, CurrentStatus],
+    imports: [WeightInputForm, WeightChart, Title, WeightEntryDetail, CurrentStatus, UnitSwitch],
     selector: 'app-root',
     styleUrl: './app.scss',
     templateUrl: './app.html',
@@ -51,5 +52,9 @@ export class App {
     onDelete(entry: WeightEntry): void {
         this.weightEntryService.removeEntry(entry);
         this.selectedDate.set(null);
+    }
+
+    onUnitChange(unit: WeightUnit): void {
+        this.settingsService.setDefaultUnit(unit);
     }
 }

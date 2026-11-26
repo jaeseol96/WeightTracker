@@ -1,0 +1,32 @@
+<div
+    class="switch-container"
+    role="radiogroup"
+    aria-label="Weight unit"
+>
+    <input
+        type="radio"
+        class="switch-option"
+        id="lb"
+        name="unit"
+        [checked]="currentUnit() === 'lb'"
+        (change)="unitChange.emit('lb')"
+    />
+    <label
+        for="lb"
+        class="switch-label"
+        >lb</label
+    >
+    <input
+        type="radio"
+        class="switch-option"
+        id="kg"
+        name="unit"
+        [checked]="currentUnit() === 'kg'"
+        (change)="unitChange.emit('kg')"
+    />
+    <label
+        for="kg"
+        class="switch-label"
+        >kg</label
+    >
+</div>
