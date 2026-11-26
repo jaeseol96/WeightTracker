@@ -1,16 +1,18 @@
 <header>
-    <app-title></app-title>
+    <div class="header-summary">
+        <app-title></app-title>
+        <app-current-status
+            [currentWeight]="mostRecentEntry"
+            [currentUnit]="currentUnit()"
+        >
+        </app-current-status>
+    </div>
+
     <app-unit-switch
         [currentUnit]="currentUnit()"
         (unitChange)="onUnitChange($event)"
     ></app-unit-switch>
 </header>
-
-<app-current-status
-    [currentWeight]="mostRecentEntry"
-    [currentUnit]="currentUnit()"
->
-</app-current-status>
 
 <div class="chart-area">
     @if (entries().length === 0) {
