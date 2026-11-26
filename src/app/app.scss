@@ -9,6 +9,11 @@
     gap: 16px;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .chart-area {
     position: relative;
     background-color: var(--color-surface);

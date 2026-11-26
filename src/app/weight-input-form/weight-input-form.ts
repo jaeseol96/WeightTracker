@@ -54,11 +54,6 @@ export class WeightInputForm {
         this.selectedDate = newDate;
     }
 
-    onUnitChange(unit: WeightUnit) {
-        this.selectedUnit = unit;
-        this.settingsService.setDefaultUnit(unit);
-    }
-
     private buildEntry(weight: number): WeightEntry {
         const newEntry: WeightEntry = {
             date: this.selectedDate,

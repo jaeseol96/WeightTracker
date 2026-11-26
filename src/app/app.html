@@ -1,8 +1,10 @@
-<app-title></app-title>
-<app-unit-switch
-    [currentUnit]="currentUnit()"
-    (unitChange)="onUnitChange($event)"
-></app-unit-switch>
+<header>
+    <app-title></app-title>
+    <app-unit-switch
+        [currentUnit]="currentUnit()"
+        (unitChange)="onUnitChange($event)"
+    ></app-unit-switch>
+</header>
 
 <app-current-status
     [currentWeight]="mostRecentEntry"

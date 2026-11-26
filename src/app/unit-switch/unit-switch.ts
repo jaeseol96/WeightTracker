@@ -8,6 +8,6 @@ import { WeightUnit } from '../models/weight-value.model';
     templateUrl: './unit-switch.html',
 })
 export class UnitSwitch {
-    currentUnit = input<WeightUnit>();
+    currentUnit = input.required<WeightUnit>();
     unitChange = output<WeightUnit>();
 }

@@ -53,3 +53,12 @@ input:focus-visible + .switch-label {
 input:checked + .switch-label {
     color: var(--color-primary);
 }
+
+.display-unit-header {
+    text-align: center;
+    margin: 0 0 4px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
