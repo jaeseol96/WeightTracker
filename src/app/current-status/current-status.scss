@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+.current-weight-container {
+    display: flex;
+    align-items: center;
+}
 .weight-value {
     font-size: 40px;
     font-weight: 500;
@@ -21,4 +25,15 @@
 .last-recorded {
     color: var(--color-text-secondary);
     margin: 0;
+}
+
+.difference-badge {
+    padding: 2px 8px;
+    min-width: 40px;
+    margin-left: 72px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--color-surface-accent);
+    color: var(--color-primary);
 }

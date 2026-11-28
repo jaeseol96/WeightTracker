@@ -1,11 +1,17 @@
-import { Injectable, signal } from '@angular/core';
-import { WeightEntry } from '../models/weight-entry.model';
+import {computed, Injectable, signal} from '@angular/core';
+import {WeightEntry} from '../models/weight-entry.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class WeightEntryService {
     private readonly _entries = signal<WeightEntry[]>([]);
+    readonly latestEntry = computed(() => {
+        return this._entries().at(-1);
+    });
+    readonly previousEntry = computed(() => {
+        return this._entries().at(-2);
+    });
     private loadFailed: boolean = false;
 
     readonly entries = this._entries.asReadonly();

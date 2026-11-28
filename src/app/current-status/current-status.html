@@ -1,18 +1,24 @@
 <div>
     <p class="header-text">CURRENT WEIGHT</p>
 
-    <div>
-        @if (currentWeight()) {
-            <span class="weight-value">
+    <div class="current-weight-container">
+        <div class="weight-main">
+            @if (currentWeight()) {
+                <span class="weight-value">
                 {{ convertedWeight()?.weight | number: '1.0-1' }}
             </span>
-        } @else {
-            <span class="weight-value"> &mdash; </span>
-        }
+            } @else {
+                <span class="weight-value"> &mdash; </span>
+            }
 
-        <span class="weight-unit">
+            <span class="weight-unit">
             {{ convertedWeight()?.unit }}
         </span>
+        </div>
+        <div class="difference-badge"
+             >
+            {{ weightDifference() }} {{ currentUnit() }}
+        </div>
     </div>
     <div>
         @if (currentWeight()) {
